@@ -1,0 +1,104 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+body{
+    background-color: black;
+}
+nav{
+    background-color: rgb(32, 32, 32);
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    height: 7vh;
+}
+.icon-text{
+    background-color: rgb(32, 32, 32);
+    color: white;
+    margin-top: 15px;
+}
+.option{
+    margin-top: 15px;
+}
+.option>a{
+    background-color: rgb(32, 32, 32);
+    color: white;
+    width: 400px;
+    margin: 10px;
+    text-decoration: none;
+}
+.option>a:hover{
+    color: #EDAC61;
+}
+.log-out{
+    height: 70%;
+    margin-top: 7px;
+    padding: 5px;
+    border-radius: 20%;
+    color: white;
+    background-color: #EDAC61;
+}
+.log-out:hover{
+    background-color: #ec9f47;
+}
+.card{
+    display: flex;
+    justify-content: space-around;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 8px );
+    -webkit-backdrop-filter: blur( 8px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    width: 45%;
+    margin: 6%;
+    margin-left: 27%;
+    display: flex;
+    height: 35vh;
+}
+.call,.mail,.location{
+    display: flex;
+    color: white;
+    margin: 5px;
+    justify-content: space-around;
+}
+.mail>a{
+    color: white;
+    text-decoration: none;
+}
+.logo{
+    margin-top: 20%;
+    margin-left: -40%;
+    height: 100px;
+    width: 100px;
+}
+img{
+    height: 200%;
+    width: 200%;
+    border-radius: 50%;
+}
+.btn{
+    margin-left: 45%;
+    margin-top: -3%;
+}
+.btn>button{
+    background-color: #EDAC61;
+    color: white;
+    padding: 5px;
+}
+.btn>button:hover{
+    background-color: #ec9f47;
+}
+footer{
+    position: absolute;
+    width: 100vw;
+    top: 80%;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(32, 32, 32);
+    color: white;
+    height: 20vh;
+}
+.foot1>p,.foot2>p{
+    margin: 10px;
+}
