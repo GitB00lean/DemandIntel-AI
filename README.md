@@ -1,1 +1,2 @@
-# DemandIntel-AI
+# DemandIntel-AI 
+TEAM (Debankur Dutta(leader), Biswajeet Nayak, Anuska Kapuria)
