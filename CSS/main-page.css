@@ -2,6 +2,9 @@
     padding: 0%;
     margin: 0%;
 }
+body{
+    background-color: #ADE8F4;
+}
 nav{
     background-color: #ffddd2;
     color: black;
@@ -30,12 +33,13 @@ input::-webkit-inner-spin-button, input ::-webkit-outer-spin-button{
     margin: 0;
   }
 .top-box{
-    width: 60vw;
+    width: 80vw;
     padding-left: 20vw;
     padding-top: 5vh;
+    background-color: #ADE8F4
 }
 h2{
-    text-align: center;
+    margin-left: 29%;
 }
 .input-div{
     padding-top: 3vh;
@@ -51,6 +55,13 @@ input{
     margin: 10px;
     font-size: large;
     margin-left: 44vw;
+    margin-right: 46vw;
+}
+.chart{
+    width: 60vw;
+    height: 40vh;
+    margin-left: 28vw;
+    margin-right: 0;
 }
 footer{
     position: absolute;
