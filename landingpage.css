@@ -1,0 +1,25 @@
+body{
+    height: 90vh;
+    width: 90vw;
+    background: url(../graphs\ image.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+h1{
+    text-align: center;
+    font-size: 8vh;
+}
+p{
+    font-size: 2vh;
+}
+button{
+    background-color: rgb(228, 109, 12);
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    margin-left: 50%;
+    margin-top: 5%;
+}
