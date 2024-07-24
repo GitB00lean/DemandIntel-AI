@@ -45,29 +45,28 @@ const firebaseConfig = {
   var date = today.getDate() + "/" + (today.getMonth()+1) + "/" + today.getFullYear() ; //gives the  current date to the system
 
 
-document.getElementById("name-containerReg").addEventListener("keyup", (e) => {
+document.getElementById("user-signup").addEventListener("keyup", (e) => {
     clearTimeout(timer);
     timer = setTimeout(() => {
-        globalThis.userNameReg = document.getElementById("name-containerReg").value.toLowerCase();
+        globalThis.userNameReg = document.getElementById("user-signup").value.toLowerCase();
         isUser(userNameReg);
     
         }, 500);
         
-        document.getElementById("name-containerReg").value.length == 0 ? document.querySelector(".registerForm > .name-container > .validUserName").style.opacity = "0" : null;
+        document.getElementById("user-signup").value.length == 0 ? document.querySelector(".registerForm > .name-container > .validUserName").style.opacity = "0" : null;
 })
 
 
 document.getElementById("signup_button").addEventListener("click", () => {
-    const regName = document.getElementById("name-containerReg").value;
-    const regEmail = document.getElementById("email-containerReg").value;
-    const regPass = document.getElementById("password-containerReg").value;
+    console.log("clicked")
+    const regName = document.getElementById("user-signup").value;
+    const regEmail = document.getElementById("email-signup").value;
+    const regPass = document.getElementById("password-signup").value;
     
         if(isEmail(regEmail))
         {
-            if((isPassword(regPass)))
-            {
-                document.querySelector(".loaderMask").style.zIndex = "100";
-                document.querySelector(".loaderMask").style.opacity = "1";
+                // document.querySelector(".loaderMask").style.zIndex = "100";
+                // document.querySelector(".loaderMask").style.opacity = "1";
                 //create account of the user
                 firebase.auth().createUserWithEmailAndPassword(regEmail, regPass)
                 .then((userCredential) => {
@@ -84,34 +83,30 @@ document.getElementById("signup_button").addEventListener("click", () => {
                     .then(() => {
                         //do the needful to bring up the login page
                         
-                        document.getElementById("name-containerReg").value = "";
-                        document.getElementById("email-containerReg").value = "";
-                        document.getElementById("password-containerReg").value = "";
-                        document.getElementById("confirmPassword-containerReg").value = "";
+                        document.getElementById("user-signup").value = "";
+                        document.getElementById("email-signup").value = "";
+                        document.getElementById("password-signup").value = "";
+                        // document.getElementById("confirmpassword-signup").value = "";
 
 
-                        document.querySelector(".loaderMask").style.zIndex = "-1";
-                        document.querySelector(".loaderMask").style.opacity = "0";
-                        document.querySelector(".registerForm").style.top = "150%";
-                        document.querySelector(".loginForm").style.top = "50%";
+                        // document.querySelector(".loaderMask").style.zIndex = "-1";
+                        // document.querySelector(".loaderMask").style.opacity = "0";
+                        // document.querySelector(".registerForm").style.top = "150%";
+                        // document.querySelector(".loginForm").style.top = "50%";
 
                     })
                 })
                 .catch((error) => {
                     var errorCode = error.code;
                     var errorMessage = error.message;
-                    errorMessage == "The email address is already in use by another account." ? typeWriterErrorHTML("errorMessage","The email address is already in use"): typeWriterErrorHTML("errorMessage", errorMessage);
+                    console.log(errorMessage)
+                    // errorMessage == "The email address is already in use by another account." ? typeWriterErrorHTML("errorMessage","The email address is already in use"): typeWriterErrorHTML("errorMessage", errorMessage);
                     
                   });
-            }
-            else if(!(isPassword(regPass)))
-            {
-                typeWriterErrorHTML("errorMessage", "Password don't match");
-            }
         }
         else if(isEmail(regEmail) == false)
         {
-            typeWriterErrorHTML("errorMessage", "Invalid EMail Address");
+            // typeWriterErrorHTML("errorMessage", "Invalid EMail Address");
         }
     
 })
@@ -129,7 +124,7 @@ document.getElementById("signin_btn").addEventListener("click", () =>{
                 console.log(doc.data());
                 if(doc.data().password != loginPass)
                 {
-                    typeWriterErrorHTML("errorMessageLogin", "Wrong Password");
+                    // typeWriterErrorHTML("errorMessageLogin", "Wrong Password");
                     document.querySelector(".loaderMask").style.zIndex = "-1";
                     document.querySelector(".loaderMask").style.opacity = "0";
                 }
@@ -140,7 +135,7 @@ document.getElementById("signin_btn").addEventListener("click", () =>{
             }
             else
             {
-                typeWriterErrorHTML("errorMessageLogin", "Account Doesn't Exist, Sign Up")
+                // typeWriterErrorHTML("errorMessageLogin", "Account Doesn't Exist, Sign Up")
                 document.querySelector(".loaderMask").style.zIndex = "-1";
                 document.querySelector(".loaderMask").style.opacity = "0";
             }
@@ -149,7 +144,7 @@ document.getElementById("signin_btn").addEventListener("click", () =>{
     }
     else 
     {
-        typeWriterErrorHTML("errorMessageLogin", "Insufficient Information")
+        // typeWriterErrorHTML("errorMessageLogin", "Insufficient Information")
     }
     
 })
@@ -163,13 +158,13 @@ function isUser(userName)
             if(doc.exists)
             {
                 document.querySelector(".registerForm > .name-container > .validUserName").style.opacity = "0"
-                document.getElementById("name-containerReg").style.color = "red";
-                typeWriterErrorHTML("errorMessage", "This Username Exists");
+                document.getElementById("user-signup").style.color = "red";
+                // typeWriterErrorHTML("errorMessage", "This Username Exists");
                 return false;
             }
             else
             {
-                document.getElementById("name-containerReg").style.color = "#3b3b3b";
+                document.getElementById("user-signup").style.color = "#3b3b3b";
                 document.querySelector(".registerForm > .name-container > .validUserName").style.opacity = "1"
                 return true;
             }
@@ -187,7 +182,7 @@ function isUser(userName)
 
 function isEmail(emailAdress){
 
-    emailAdress = document.getElementById("email-containerReg").value;
+    emailAdress = document.getElementById("email-signup").value;
     if (emailAdress.match(regex)) 
     return true;
     else 
@@ -197,8 +192,8 @@ function isEmail(emailAdress){
     
     }
     
-    document.getElementById("email-containerReg").addEventListener("input", () => {
-        var emailReg = document.getElementById("email-containerReg").value;
+    document.getElementById("email-signup").addEventListener("input", () => {
+        var emailReg = document.getElementById("email-signup").value;
         if(isEmail(emailReg) == true)
         {
         document.getElementById("validEmail").style.opacity = "1";
@@ -211,41 +206,25 @@ function isEmail(emailAdress){
         emailReg.length == 0 ? document.getElementById("validEmail").style.opacity = "0" : null;
     })
 
-function isPassword(pass)
-{
-    regconfPass = document.getElementById("confirmPassword-containerReg").value;
-    console.log(pass.length)
-    if((pass.length >= 6) && (pass == regconfPass))
-    {   
-        return true;
-    }
-    else 
-    {
-        return false;
-    }
+    //the next starting point to start coding
+// function isPassword(pass)
+// {
+//     regconfPass = document.getElementById("confirmpassword-signup").value;
+//     console.log(pass.length)
+//     if((pass.length >= 6) && (pass == regconfPass))
+//     {   
+//         return true;
+//     }
+//     else 
+//     {
+//         return false;
+//     }
 
-}
+// }
 
-document.getElementById("password-containerReg").addEventListener("input", () => {
-    regPass = document.getElementById("password-containerReg").value;
-    regconfPass = document.getElementById("confirmPassword-containerReg").value;
-    if(isPassword(regPass))
-    {
-        document.getElementById("validPassword").style.opacity = "0";
-        document.getElementById("validPasswordConf").style.opacity = "0";
-    }
-    else
-    {
-        document.getElementById("validPassword").style.opacity = "1";
-        document.getElementById("validPasswordConf").style.opacity = "1";
-    }
-
-
-})
-
-document.getElementById("confirmPassword-containerReg").addEventListener("input", () => {
-    regPass = document.getElementById("password-containerReg").value;
-    regconfPass = document.getElementById("confirmPassword-containerReg").value;
+document.getElementById("password-signup").addEventListener("input", () => {
+    regPass = document.getElementById("password-signup").value;
+    regconfPass = document.getElementById("confirmpassword-signup").value;
     if(isPassword(regPass))
     {
         document.getElementById("validPassword").style.opacity = "0";
@@ -263,25 +242,27 @@ document.getElementById("confirmPassword-containerReg").addEventListener("input"
 
 
 
-function typeWriterErrorHTML(idOfTextHolder, textToType, speed) {
-    var i = 0;
-    var speed = speed || 25; // Default speed if not provided
-    document.getElementById(idOfTextHolder).innerHTML = "";
-    function type() {
-        if (i < textToType.length) {
-            document.getElementById(idOfTextHolder).innerHTML += textToType.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-         if(i == textToType.length )
-         {
-            setTimeout(() => {
-                document.getElementById(idOfTextHolder).innerHTML = "";
-            }, 1500);
-         }
-    }
-    type(); // Call the function to start the typing effect
-}
+
+
+// function typeWriterErrorHTML(idOfTextHolder, textToType, speed) {
+//     var i = 0;
+//     var speed = speed || 25; // Default speed if not provided
+//     document.getElementById(idOfTextHolder).innerHTML = "";
+//     function type() {
+//         if (i < textToType.length) {
+//             document.getElementById(idOfTextHolder).innerHTML += textToType.charAt(i);
+//             i++;
+//             setTimeout(type, speed);
+//         }
+//          if(i == textToType.length )
+//          {
+//             setTimeout(() => {
+//                 document.getElementById(idOfTextHolder).innerHTML = "";
+//             }, 1500);
+//          }
+//     }
+//     type(); // Call the function to start the typing effect
+// }
 
 function checkUserOnLogin()
 {
@@ -289,7 +270,7 @@ function checkUserOnLogin()
         if(localStorage.getItem("farmerPodUser") != null)
         {
 
-            location.replace("inermediate.html");
+            location.replace("User.html");
         }
     
 }
@@ -299,26 +280,6 @@ window.onload = e => {
 }
 
 
-document.getElementById("SeePwd").addEventListener("click", () => {
-    document.getElementById("SeePwd").classList.contains("hidden") ? (document.getElementById("SeePwd").classList.remove("hidden")) (document.getElementById("SeePwd").setAttribute("name", "eye-off")) : (document.getElementById("SeePwd").classList.add("hidden")) (document.getElementById("SeePwd").setAttribute("name", "eye"));
-});
-
-document.getElementById("SeePwdReg").addEventListener("click", () => {
-    document.getElementById("SeePwdReg").classList.contains("hidden") ? (document.getElementById("SeePwdReg").classList.remove("hidden")) (document.getElementById("SeePwdReg").setAttribute("name", "eye-off")) : (document.getElementById("SeePwdReg").classList.add("hidden")) (document.getElementById("SeePwdReg").setAttribute("name", "eye"));
-});
-
-
-document.getElementById("SeePwdConf").addEventListener("click", () => {
-    document.getElementById("SeePwdConf").classList.contains("hidden") ? (document.getElementById("SeePwdConf").classList.remove("hidden")) (document.getElementById("SeePwdConf").setAttribute("name", "eye-off")) : (document.getElementById("SeePwdConf").classList.add("hidden")) (document.getElementById("SeePwdConf").setAttribute("name", "eye"));
-});
-
-function togglePasswordvisibility()
-{
-    document.getElementById("SeePwd").classList.contains("hidden") ? document.getElementById("signinPasswordInp").setAttribute("type", "password") : document.getElementById("signinPasswordInp").setAttribute("type", "text");
-    
-    document.getElementById("SeePwdReg").classList.contains("hidden") ? document.getElementById("password-containerReg").setAttribute("type", "password") : document.getElementById("password-containerReg").setAttribute("type", "text");
-    document.getElementById("SeePwdConf").classList.contains("hidden") ? document.getElementById("confirmPassword-containerReg").setAttribute("type", "password") : document.getElementById("confirmPassword-containerReg").setAttribute("type", "text");
-}
-setInterval(() => {
-    togglePasswordvisibility();
-}, 500);
+// setInterval(() => {
+//     togglePasswordvisibility();
+// }, 500);
