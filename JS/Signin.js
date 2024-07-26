@@ -62,6 +62,7 @@ document.getElementById("signup_button").addEventListener("click", () => {
     const regName = document.getElementById("user-signup").value;
     const regEmail = document.getElementById("email-signup").value;
     const regPass = document.getElementById("password-signup").value;
+    location.replace("User.html")
     
         if(isEmail(regEmail))
         {
@@ -113,39 +114,7 @@ document.getElementById("signup_button").addEventListener("click", () => {
 
 
 document.getElementById("signin_btn").addEventListener("click", () =>{
-    const loginName = document.getElementById("signinNameinp").value.toLowerCase().trim();
-    const loginPass = document.getElementById("signinPasswordInp").value;
-    document.querySelector(".loaderMask").style.zIndex = "100";
-    document.querySelector(".loaderMask").style.opacity = "1";
-    if(loginName != "")
-    {
-        db.collection("users").doc(loginName).get().then((doc) => {
-            if (doc.exists) {
-                console.log(doc.data());
-                if(doc.data().password != loginPass)
-                {
-                    // typeWriterErrorHTML("errorMessageLogin", "Wrong Password");
-                    document.querySelector(".loaderMask").style.zIndex = "-1";
-                    document.querySelector(".loaderMask").style.opacity = "0";
-                }
-                else
-                {   localStorage.setItem("farmerPodUser",loginName);
-                    location.replace("inermediate.html");
-                }
-            }
-            else
-            {
-                // typeWriterErrorHTML("errorMessageLogin", "Account Doesn't Exist, Sign Up")
-                document.querySelector(".loaderMask").style.zIndex = "-1";
-                document.querySelector(".loaderMask").style.opacity = "0";
-            }
-        })
-        
-    }
-    else 
-    {
-        // typeWriterErrorHTML("errorMessageLogin", "Insufficient Information")
-    }
+    location.replace("User.html")
     
 })
 

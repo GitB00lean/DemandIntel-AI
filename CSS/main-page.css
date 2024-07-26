@@ -1,16 +1,28 @@
+:root{
+    --blue: #023e7d;
+    --lightblue: #ADE8F4;
+}
 *{
     padding: 0%;
     margin: 0%;
 }
 body{
-    background-color: #ADE8F4;
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(201,19,225,1) 100%);
+}
+.icon-text>h1{
+    color: rgb(9, 9, 121);
+    font-size: xx-large;
 }
 nav{
-    background-color: #ffddd2;
+    background-color: var(--lightblue);
     color: black;
     display: flex;
     justify-content: space-between;
     height: 7vh;
+}
+input{
+    background-color: rgb(197, 191, 191);
 }
 a{
     margin: 5px;
@@ -33,13 +45,14 @@ input::-webkit-inner-spin-button, input ::-webkit-outer-spin-button{
     margin: 0;
   }
 .top-box{
+    color: white;
     width: 80vw;
     padding-left: 20vw;
     padding-top: 5vh;
-    background-color: #ADE8F4
 }
 h2{
     margin-left: 29%;
+    text-decoration: underline;
 }
 .input-div{
     padding-top: 3vh;
@@ -49,13 +62,17 @@ h2{
 input{
     margin: 10px;
 }
-.predict{
+button{
     height: 5vh;
     width: 10vw;
     margin: 10px;
     font-size: large;
     margin-left: 44vw;
     margin-right: 46vw;
+    transition: 0.5s;
+}
+button:hover{
+    background: var(--lightblue);
 }
 .chart{
     width: 60vw;
@@ -66,12 +83,12 @@ input{
 footer{
     position: absolute;
     width: 100vw;
-    top: 80%;
+    top: 84%;
     display: flex;
     justify-content: space-around;
-    background-color: #ffddd2;
+    background-color: var(--lightblue);
     color: black;
-    height: 20vh;
+    height: 16vh;
 }
 .foot1>p,.foot2>p{
     margin: 10px;

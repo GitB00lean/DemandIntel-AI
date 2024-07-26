@@ -1,9 +1,14 @@
+:root{
+    --blue: #023e7d;
+}
 *{
     padding: 0%;
     margin: 0%;
 }
 body{
-    background-color: #48CAE4;
+    background: url(../artificial-intelligence-g926d8d96c_1280-1.jpg);
+    background-size: cover;
+    height: 60vh;
 }
 nav{
     background-color: #ADE8F4;
@@ -44,14 +49,14 @@ nav{
 .card{
     display: flex;
     justify-content: space-around;
-    background: rgba( 255, 255, 255, 0.25 );
+    background: #90e0ef;
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 8px );
     -webkit-backdrop-filter: blur( 8px );
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     width: 45%;
-    margin: 6%;
+    margin: 2%;
     margin-left: 27%;
     display: flex;
     height: 35vh;
@@ -98,7 +103,7 @@ img{
 }
 .btn{
     margin-left: 45%;
-    margin-top: -3%;
+    margin-top: 3%;
 }
 .btn>button{
     background-color: #EDAC61;
@@ -114,10 +119,12 @@ footer{
     top: 80%;
     display: flex;
     justify-content: space-around;
-    background-color: #ADE8F4;
-    color: black;
+    color: white;
     height: 20vh;
 }
 .foot1>p,.foot2>p{
     margin: 10px;
+}
+.foot2>p{
+    margin-bottom: 10%;
 }

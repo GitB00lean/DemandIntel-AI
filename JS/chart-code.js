@@ -77,14 +77,38 @@ async function predictSales() {
         ]
       },
       options: {
+        plugins: {
+          legend: {
+            labels: {
+              color: 'white' // Color of legend labels
+            }
+          }
+        },
         scales: {
+          x: {
+            grid: {
+              color: 'rgba(255, 255, 255, 0.2)' // Color of x-axis grid lines
+            },
+            ticks: {
+              color: 'white' // Color of x-axis labels
+            }
+          },
           y: {
-            beginAtZero: true
+            grid: {
+              color: 'rgba(255, 255, 255, 0.2)' // Color of y-axis grid lines
+            },
+            ticks: {
+              color: 'white' // Color of y-axis labels
+            }
           }
         }
       }
     });
+    
     document.getElementById("loadingText").style.opacity = 0;
 }
 }
-
+const restart= document.querySelector('.restart');
+restart.addEventListener('click',()=>{
+  location.reload()
+})
